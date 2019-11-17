@@ -73,8 +73,9 @@ export default {
           data: this.form
         }).then(res => {
           console.log(res.data)
-          const { meta } = res.data
+          const { meta, data } = res.data
           if (meta.status === 200) {
+            localStorage.setItem('token', data.token)
             this.$router.push('/home')
             this.$message.success('登录成功')
           } else {
@@ -91,7 +92,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .login {
   background-color: #2d434c;
   height: 100%;
