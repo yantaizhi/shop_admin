@@ -7,6 +7,8 @@ import Users from '../views/Users.vue'
 import Roles from '../views/Roles.vue'
 import Rights from '../views/Rights.vue'
 import Category from '../views/category.vue'
+import Goods from '../views/Goods.vue'
+import GoodsAdd from '../views/GoodsAdd.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +41,14 @@ const router = new VueRouter({
         {
           path: '/categories',
           component: Category
+        },
+        {
+          path: '/goods',
+          component: Goods
+        },
+        {
+          path: '/goods-add',
+          component: GoodsAdd
         }
       ]
     }

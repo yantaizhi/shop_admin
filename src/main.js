@@ -2,13 +2,24 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
+import VueQuillEditor from 'vue-quill-editor'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import moment from 'moment'
+
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(VueQuillEditor)
 
 Vue.prototype.$axios = axios
 axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
+
+Vue.filter('time', function (val) {
+  return moment(val * 1000).format('YYYY-MM-DD HH:mm:ss')
+})
 
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
